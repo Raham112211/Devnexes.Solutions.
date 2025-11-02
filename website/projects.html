@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - DevNexes Solutions</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/navbar-uniform.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-main">DevNexes</span>
+                <span class="logo-sub">Solutions</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="projects-btn active">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </button>
+                <button class="hub-btn" onclick="window.open('hub.html', '_blank')">
+                    <i class="fas fa-comments"></i>
+                    <span>Comments</span>
+                </button>
+                <button class="admin-btn" onclick="window.open('admin.html', '_blank')">
+                    <i class="fas fa-cog"></i>
+                    <span>Admin</span>
+                </button>
+                <div class="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="projects-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">DevNexes <span class="highlight">Projects</span></h1>
+            <p class="hero-subtitle">Innovative solutions crafted by Muhammad Raham</p>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">50+</span>
+                    <span class="hero-stat-label">Total Projects</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">5</span>
+                    <span class="hero-stat-label">In Progress</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">10</span>
+                    <span class="hero-stat-label">Completed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Project Gallery</h2>
+                <p class="section-subtitle">Explore all projects from DevNexes Solutions</p>
+            </div>
+
+            <div class="search-container">
+                <div class="expert-search">
+                    <div class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search projects...">
+                    <div class="search-ai">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-grid" id="projectsGrid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <span class="project-status latest">Latest</span>
+                    </div>
+                    <p class="project-description">Full-stack e-commerce solution with AI recommendations</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-calendar"></i> Jan 2025</span>
+                        <span>#001</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">AI Chatbot System</h3>
+                        <span class="project-status progress">In Progress</span>
+                    </div>
+                    <p class="project-description">Intelligent customer service chatbot with NLP</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-calendar"></i> Dec 2024</span>
+                        <span>#002</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Portfolio Website</h3>
+                        <span class="project-status completed">Completed</span>
+                    </div>
+                    <p class="project-description">Modern responsive portfolio with admin panel</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-calendar"></i> Nov 2024</span>
+                        <span>#003</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-main">DevNexes</span>
+                        <span class="logo-sub">Solutions</span>
+                    </div>
+                    <p>"Smart Web. Smarter Code."</p>
+                </div>
+                <div class="footer-info">
+                    <p><strong>Muhammad Raham</strong></p>
+                    <p>Python Web & AI Developer</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

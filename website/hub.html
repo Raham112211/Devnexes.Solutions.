@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments - DevNexes Solutions</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/navbar-uniform.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-main">DevNexes</span>
+                <span class="logo-sub">Solutions</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="projects-btn" onclick="window.open('projects.html', '_blank')">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </button>
+                <button class="hub-btn active">
+                    <i class="fas fa-comments"></i>
+                    <span>Comments</span>
+                </button>
+                <button class="admin-btn" onclick="window.open('admin.html', '_blank')">
+                    <i class="fas fa-cog"></i>
+                    <span>Admin</span>
+                </button>
+                <div class="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="comments-page">
+        <h1 class="page-title">Comments</h1>
+        <div class="comments-count">0 comments</div>
+
+        <div class="add-comment">
+            <h3><i class="fas fa-comment"></i>Add Comment</h3>
+            <div class="comment-form">
+                <div class="form-row">
+                    <input type="text" class="name-input" placeholder="Your name" required>
+                </div>
+                <textarea class="comment-input" placeholder="Write your comment here..." required></textarea>
+                <div class="comment-actions">
+                    <button class="btn-cancel">Cancel</button>
+                    <button class="btn-comment"><i class="fas fa-paper-plane"></i>Post</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="comments-list">
+            <div class="no-comments">
+                <i class="fas fa-comments"></i>
+                <h3>No comments yet</h3>
+                <p>Be the first to share your thoughts!</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-main">DevNexes</span>
+                        <span class="logo-sub">Solutions</span>
+                    </div>
+                    <p>"Smart Web. Smarter Code."</p>
+                </div>
+                <div class="footer-info">
+                    <p><strong>Muhammad Raham</strong></p>
+                    <p>Python Web & AI Developer</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

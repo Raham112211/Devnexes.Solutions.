@@ -1,0 +1,431 @@
+/* Universal Dynamic Navbar - Same as Main Site */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    min-width: min(700px, 90vw);
+    max-width: 90%;
+    background: transparent;
+    backdrop-filter: none;
+    z-index: 999;
+    padding: 12px 24px;
+    border-radius: 50px;
+    border: none;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: none;
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--primary-color);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.navbar.scrolled .logo-main {
+    color: var(--primary-color);
+}
+
+.navbar.scrolled .logo-sub {
+    color: #000000;
+}
+
+.navbar.scrolled .nav-menu a {
+    color: #000000;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 8px;
+}
+
+.navbar.scrolled .nav-menu a:hover {
+    color: var(--primary-color);
+    background: rgba(255, 204, 0, 0.1);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.navbar.scrolled .projects-btn,
+.navbar.scrolled .hub-btn {
+    color: #000000;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 8px;
+}
+
+.navbar.scrolled .projects-btn:hover,
+.navbar.scrolled .hub-btn:hover {
+    color: var(--primary-color);
+    background: rgba(255, 204, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.navbar.scrolled .theme-toggle {
+    color: #000000;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 8px;
+}
+
+.navbar.scrolled .theme-toggle:hover {
+    color: var(--primary-color);
+    background: rgba(255, 204, 0, 0.1);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-main {
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.logo-sub {
+    color: #ffffff;
+    margin-left: 0.2rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background: transparent;
+    font-size: 1rem;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+    background: rgba(255, 204, 0, 0.1);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.projects-btn,
+.hub-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.projects-btn::before,
+.hub-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 204, 0, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.projects-btn:hover::before,
+.hub-btn:hover::before {
+    left: 100%;
+}
+
+.projects-btn:hover,
+.hub-btn:hover {
+    color: var(--primary-color);
+    background: rgba(255, 204, 0, 0.1);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.projects-btn.active {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 220, 0, 0.2));
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.hub-btn.active {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 220, 0, 0.2));
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.theme-toggle {
+    cursor: pointer;
+    font-size: 17px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 204, 0, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.theme-toggle:hover::before {
+    left: 100%;
+}
+
+.theme-toggle:hover {
+    color: var(--primary-color);
+    background: rgba(255, 204, 0, 0.1);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Dark Theme */
+[data-theme="dark"] .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--primary-color);
+}
+
+[data-theme="dark"] .navbar.scrolled .logo-main {
+    color: var(--primary-color) !important;
+}
+
+[data-theme="dark"] .navbar.scrolled .logo-sub {
+    color: #000000 !important;
+}
+
+[data-theme="dark"] .navbar.scrolled .nav-menu a,
+[data-theme="dark"] .navbar.scrolled .projects-btn,
+[data-theme="dark"] .navbar.scrolled .hub-btn,
+[data-theme="dark"] .navbar.scrolled .theme-toggle {
+    color: #000000 !important;
+    background: transparent !important;
+    border: 2px solid transparent !important;
+}
+
+[data-theme="dark"] .navbar.scrolled .nav-menu a:hover,
+[data-theme="dark"] .navbar.scrolled .projects-btn:hover,
+[data-theme="dark"] .navbar.scrolled .hub-btn:hover,
+[data-theme="dark"] .navbar.scrolled .theme-toggle:hover {
+    color: var(--primary-color) !important;
+    background: rgba(255, 204, 0, 0.1) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        min-width: auto;
+        width: 95%;
+        padding: 8px 16px;
+        top: 10px;
+        background: transparent !important;
+        backdrop-filter: none;
+        border: none;
+    }
+    
+    .navbar .logo-main {
+        color: var(--primary-color) !important;
+    }
+    
+    .navbar .logo-sub {
+        color: #ffffff !important;
+    }
+    
+    .navbar .projects-btn,
+    .navbar .hub-btn,
+    .navbar .theme-toggle {
+        color: #ffffff !important;
+    }
+    
+    .navbar.scrolled {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar.scrolled .logo-main {
+        color: var(--primary-color) !important;
+    }
+    
+    .navbar.scrolled .logo-sub {
+        color: #000000 !important;
+    }
+    
+    .navbar.scrolled .projects-btn,
+    .navbar.scrolled .hub-btn,
+    .navbar.scrolled .theme-toggle {
+        color: #000000 !important;
+    }
+    
+    .nav-container {
+        gap: 10px;
+    }
+    
+    .logo {
+        font-size: 1.1rem;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 300px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-radius: 15px;
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 998;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-menu a {
+        padding: 12px 16px;
+        text-align: center;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.1);
+        font-size: 14px;
+        color: #000000 !important;
+    }
+    
+    .nav-actions {
+        gap: 8px;
+    }
+    
+    .projects-btn,
+    .hub-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+        gap: 4px;
+    }
+    
+    .projects-btn span,
+    .hub-btn span {
+        display: none;
+    }
+    
+    .theme-toggle {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
+/* Dark theme mobile */
+@media (max-width: 768px) {
+    [data-theme="dark"] .navbar {
+        background: transparent !important;
+        backdrop-filter: none;
+        border: none;
+    }
+    
+    [data-theme="dark"] .navbar .logo-main {
+        color: var(--primary-color) !important;
+    }
+    
+    [data-theme="dark"] .navbar .logo-sub {
+        color: #ffffff !important;
+    }
+    
+    [data-theme="dark"] .navbar .projects-btn,
+    [data-theme="dark"] .navbar .hub-btn,
+    [data-theme="dark"] .navbar .theme-toggle {
+        color: #ffffff !important;
+    }
+    
+    [data-theme="dark"] .navbar.scrolled {
+        background: rgba(0, 0, 0, 0.4) !important;
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    [data-theme="dark"] .navbar.scrolled .logo-main {
+        color: var(--primary-color) !important;
+    }
+    
+    [data-theme="dark"] .navbar.scrolled .logo-sub {
+        color: #ffffff !important;
+    }
+    
+    [data-theme="dark"] .navbar.scrolled .projects-btn,
+    [data-theme="dark"] .navbar.scrolled .hub-btn,
+    [data-theme="dark"] .navbar.scrolled .theme-toggle {
+        color: #ffffff !important;
+    }
+    
+    [data-theme="dark"] .nav-menu {
+        background: rgba(0, 0, 0, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    [data-theme="dark"] .nav-menu a {
+        color: #ffffff !important;
+        background: transparent;
+    }
+}

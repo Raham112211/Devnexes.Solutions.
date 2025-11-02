@@ -1,0 +1,120 @@
+/* Advanced Portfolio Animations */
+
+/* Gradient Hero Background */
+.portfolio-hero {
+    background: linear-gradient(-45deg, #000000, #1a1a1a, #2d2d2d, #1a1a1a) !important;
+    background-size: 400% 400% !important;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Animated Text Gradient */
+.section-title {
+    background: linear-gradient(45deg, var(--primary-color), #FFE55C, var(--primary-color));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: textShine 3s ease-in-out infinite;
+}
+
+@keyframes textShine {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Magnetic Hover Effect */
+.service-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.service-item:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* 3D Card Effect */
+.tech-category:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg) !important;
+}
+
+/* Neon Glow Effect */
+.developer-avatar::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: conic-gradient(from 0deg, var(--primary-color), #FFE55C, var(--primary-color));
+    border-radius: 50%;
+    z-index: -1;
+    animation: neonRotate 3s linear infinite;
+}
+
+@keyframes neonRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Floating Icons */
+.service-icon {
+    animation: iconFloat 4s ease-in-out infinite;
+}
+
+.service-item:nth-child(1) .service-icon { animation-delay: 0s; }
+.service-item:nth-child(2) .service-icon { animation-delay: 1s; }
+.service-item:nth-child(3) .service-icon { animation-delay: 2s; }
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(5deg); }
+    50% { transform: translateY(-5px) rotate(-5deg); }
+    75% { transform: translateY(-15px) rotate(3deg); }
+}
+
+/* Glitch Effect */
+.company-brand .logo:hover {
+    animation: glitch 0.5s ease-in-out;
+}
+
+@keyframes glitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+}
+
+/* Ripple Effect */
+.stat-box::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 215, 0, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.stat-box:hover::before {
+    width: 300px;
+    height: 300px;
+}

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub - DevNexes Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="navbar-uniform.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Theme toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            if (savedTheme === 'dark') {
+                themeToggle.querySelector('i').className = 'fas fa-moon';
+            }
+
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                this.querySelector('i').className = newTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+            });
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .hub-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+            margin-top: 100px;
+        }
+        
+        .hub-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .hub-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .hub-header p {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        .chat-box {
+            background: #f8f9fa;
+            border-radius: 12px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e9ecef;
+        }
+        
+        .chat-header {
+            background: #FFD700;
+            color: #000;
+            padding: 15px 20px;
+            border-radius: 12px 12px 0 0;
+            font-weight: 600;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 15px;
+            max-width: 80%;
+        }
+        
+        .message.admin {
+            background: #FFD700;
+            color: #000;
+        }
+        
+        .message.user {
+            background: #e9ecef;
+            color: #333;
+            margin-left: auto;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            gap: 10px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+        
+        .chat-input input:focus {
+            border-color: #FFD700;
+        }
+        
+        .send-btn {
+            background: #FFD700;
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .send-btn:hover {
+            background: #FFC107;
+        }
+        
+        .quick-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .quick-btn {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .quick-btn:hover {
+            background: #FFD700;
+            color: #000;
+        }
+        
+        .quick-btn i {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: #FFD700;
+        }
+        
+        .quick-btn:hover i {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-main">DevNexes</span>
+                <span class="logo-sub">Solutions</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="projects-btn" onclick="window.open('projects.html', '_blank')">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </button>
+                <button class="hub-btn active">
+                    <i class="fas fa-comments"></i>
+                    <span>Hub</span>
+                </button>
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-sun"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hub-container">
+        <div class="hub-header">
+            <h1><i class="fas fa-comments"></i> Communication Hub</h1>
+            <p>Chat with Muhammad Raham</p>
+        </div>
+        
+        <div class="chat-box">
+            <div class="chat-header">
+                <i class="fas fa-circle" style="color: #10b981; font-size: 0.8rem;"></i>
+                Muhammad Raham - Online
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message admin">
+                    <strong>Muhammad:</strong> Welcome! How can I help you today?
+                </div>
+            </div>
+            
+            <div class="chat-input">
+                <input type="text" id="messageInput" placeholder="Type your message...">
+                <button class="send-btn" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+        
+        <div class="quick-buttons">
+            <button class="quick-btn" onclick="quickMessage('I want to start a new project')">
+                <i class="fas fa-rocket"></i>
+                New Project
+            </button>
+            <button class="quick-btn" onclick="quickMessage('I need technical help')">
+                <i class="fas fa-cogs"></i>
+                Tech Help
+            </button>
+            <button class="quick-btn" onclick="quickMessage('I want to collaborate')">
+                <i class="fas fa-handshake"></i>
+                Collaborate
+            </button>
+            <button class="quick-btn" onclick="quickMessage('I need project updates')">
+                <i class="fas fa-chart-line"></i>
+                Updates
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const responses = [
+            "Thanks for reaching out! I'll help you with that.",
+            "Great question! Let me provide you with details.",
+            "I'd be happy to work on your project.",
+            "Let's discuss this further. What do you have in mind?",
+            "That sounds interesting! Tell me more.",
+            "I can definitely help you with that solution."
+        ];
+        
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            addMessage(message, 'user');
+            input.value = '';
+            
+            setTimeout(() => {
+                const response = responses[Math.floor(Math.random() * responses.length)];
+                addMessage(`<strong>Muhammad:</strong> ${response}`, 'admin');
+            }, 1000);
+        }
+        
+        function quickMessage(message) {
+            addMessage(message, 'user');
+            
+            setTimeout(() => {
+                let response = '';
+                if (message.includes('project')) {
+                    response = '<strong>Muhammad:</strong> Great! Tell me about your project idea.';
+                } else if (message.includes('help')) {
+                    response = '<strong>Muhammad:</strong> I\'m here to help. What do you need assistance with?';
+                } else if (message.includes('collaborate')) {
+                    response = '<strong>Muhammad:</strong> I love collaborations! What do you have in mind?';
+                } else if (message.includes('updates')) {
+                    response = '<strong>Muhammad:</strong> I\'ll provide you with the latest updates.';
+                }
+                addMessage(response, 'admin');
+            }, 1000);
+        }
+        
+        function addMessage(message, sender) {
+            const messagesDiv = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.innerHTML = message;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        
+        document.getElementById('messageInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

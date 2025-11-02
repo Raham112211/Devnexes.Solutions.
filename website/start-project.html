@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Project - DevNexes Solutions</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/navbar-uniform.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-main">DevNexes</span>
+                <span class="logo-sub">Solutions</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="projects-btn" onclick="window.open('projects.html', '_blank')">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </button>
+                <button class="hub-btn" onclick="window.open('hub.html', '_blank')">
+                    <i class="fas fa-comments"></i>
+                    <span>Comments</span>
+                </button>
+                <div class="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="start-project-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Start Your <span class="highlight">Project</span></h1>
+                <p class="hero-subtitle">Let's build something amazing together</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-form-section">
+        <div class="container">
+            <div class="form-container">
+                <h2>Project Request Form</h2>
+                <form class="project-form">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" required placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" required placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Project Title</label>
+                        <input type="text" required placeholder="What's your project called?">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Project Type</label>
+                        <select required>
+                            <option value="">Select project type</option>
+                            <option value="website">Website Development</option>
+                            <option value="webapp">Web Application</option>
+                            <option value="ai">AI Integration</option>
+                            <option value="automation">Automation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Budget Range</label>
+                        <select>
+                            <option value="">Select budget range</option>
+                            <option value="500-1000">$500 - $1,000</option>
+                            <option value="1000-2500">$1,000 - $2,500</option>
+                            <option value="2500-5000">$2,500 - $5,000</option>
+                            <option value="5000+">$5,000+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Timeline</label>
+                        <select>
+                            <option value="">Select timeline</option>
+                            <option value="1-2weeks">1-2 weeks</option>
+                            <option value="1month">1 month</option>
+                            <option value="2-3months">2-3 months</option>
+                            <option value="3months+">3+ months</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Project Description</label>
+                        <textarea required placeholder="Describe your project in detail..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Project Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-main">DevNexes</span>
+                        <span class="logo-sub">Solutions</span>
+                    </div>
+                    <p>"Smart Web. Smarter Code."</p>
+                </div>
+                <div class="footer-info">
+                    <p><strong>Muhammad Raham</strong></p>
+                    <p>Python Web & AI Developer</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>DevNexes Solutions - Muhammad Raham | Python Web & AI Developer</title>
+    <meta name="description" content="Professional web development and AI automation solutions by Muhammad Raham. Building smarter web experiences with Python and AI.">
+    <link rel="stylesheet" href="//assets/css/styles.css">
+    <link rel="stylesheet" href="//assets/css/navbar-uniform.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="//assets/js/script.js" defer></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-main">DevNexes</span>
+                <span class="logo-sub">Solutions</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="projects-btn" id="projectsBtn">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </button>
+                <!-- Hub/Comments Button - Communication Hub -->
+                <button class="hub-btn" id="hubBtn" onclick="window.open('hub.html', '_blank') || (window.location.href='hub.html')">
+                    <i class="fas fa-comments"></i>
+                    <span>Comments</span>
+                </button>
+                <div class="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Spider Web Animation -->
+        <canvas id="spiderWeb" class="spider-web-canvas"></canvas>
+        
+        <!-- Animated Video-like Background -->
+        <div class="hero-video-bg"></div>
+        
+        <!-- Enhanced Animated Background -->
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Building Smarter Web, <span class="highlight">One Line at a Time</span></h1>
+                <p class="hero-subtitle">Professional web development and AI automation solutions that transform your business</p>
+                <div class="founder-info">
+                    <span class="founder-name">Muhammad Raham</span>
+                    <span class="founder-title">Founder & Lead Developer</span>
+                </div>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="window.open('start-project.html', '_blank')">Start Project</button>
+                    <button class="btn-secondary" onclick="window.open('portfolio.html', '_blank')">View Portfolio</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="logo-display">
+                    <div class="main-logo">
+                        <span class="logo-main">DevNexes</span>
+                        <span class="logo-sub">Solutions</span>
+                    </div>
+                    <div class="logo-tagline">Smart Web. Smarter Code.</div>
+                    <div class="tech-icons">
+                        <i class="fab fa-python"></i>
+                        <i class="fas fa-code"></i>
+                        <i class="fas fa-robot"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About DevNexes Solutions</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Innovating the Future of Technology</h3>
+                    <p>DevNexes Solutions is a cutting-edge technology company led by Muhammad Raham, specializing in full-stack development, artificial intelligence, and machine learning solutions. We empower businesses with smart, scalable, and innovative digital experiences that drive growth and success.</p>
+                    <div class="mission-vision">
+                        <div class="mission">
+                            <h4>Mission</h4>
+                            <p>To make intelligent, efficient, and futuristic web experiences through Python, AI, and creative coding.</p>
+                        </div>
+                        <div class="vision">
+                            <h4>Vision</h4>
+                            <p>To be the leading provider of AI-powered web solutions that drive business innovation.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <h3 id="projectCount">0</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>100%</h3>
+                        <p>Client Satisfaction</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>24/7</h3>
+                        <p>Support Available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Modern, responsive websites built with cutting-edge technologies</p>
+                    <ul>
+                        <li>Frontend Development</li>
+                        <li>Backend Systems</li>
+                        <li>Full-Stack Solutions</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Integration</h3>
+                    <p>Intelligent automation and AI-powered features for your applications</p>
+                    <ul>
+                        <li>Chatbot Development</li>
+                        <li>Process Automation</li>
+                        <li>Machine Learning</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3>Python Development</h3>
+                    <p>Robust Python applications and data-driven solutions</p>
+                    <ul>
+                        <li>API Development</li>
+                        <li>Data Analysis</li>
+                        <li>Automation Scripts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Projects will be loaded dynamically -->
+            </div>
+            <div class="loading-message" id="portfolioLoading" style="text-align: center; padding: 2rem; color: var(--text-light);">
+                <i class="fas fa-spinner fa-spin"></i> Preparing showcase...
+            </div>
+            <div class="no-projects-message" id="noProjectsMessage" style="display: none; text-align: center; padding: 3rem; color: var(--text-light);">
+                <i class="fas fa-folder-open" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
+                <p>No completed projects to display yet.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-main">DevNexes</span>
+                        <span class="logo-sub">Solutions</span>
+                    </div>
+                    <p>Building Smarter Web, One Line at a Time</p>
+                </div>
+                <div class="footer-info">
+                    <p>© 2025 DevNexes Solutions. All rights reserved.</p>
+                    <p>Created by Muhammad Raham</p>
+                    <p>Pakistan</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+/* Enhanced Navbar Button Styling with Animations */
+
+/* Make all navbar buttons look the same with enhanced effects */
+.nav-menu a,
+.projects-btn,
+.hub-btn,
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px !important;
+    background: transparent !important;
+    border: 2px solid transparent !important;
+    border-radius: 25px !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    font-size: 1rem !important;
+    text-decoration: none !important;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced shimmer effect with glow */
+.nav-menu a::before,
+.projects-btn::before,
+.hub-btn::before,
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 215, 0, 0.4), 
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 215, 0, 0.4), 
+        transparent);
+    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+.nav-menu a:hover::before,
+.projects-btn:hover::before,
+.hub-btn:hover::before,
+.theme-toggle:hover::before {
+    left: 100%;
+}
+
+/* Glowing border animation */
+.nav-menu a::after,
+.projects-btn::after,
+.hub-btn::after,
+.theme-toggle::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--primary-color) 0%, 
+        #FFDC00 25%, 
+        #FF9500 50%, 
+        #FFDC00 75%, 
+        var(--primary-color) 100%);
+    background-size: 400% 400%;
+    border-radius: 25px;
+    z-index: -1;
+    opacity: 0;
+    animation: borderGlow 3s ease-in-out infinite;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes borderGlow {
+    0%, 100% { 
+        background-position: 0% 50%;
+    }
+    50% { 
+        background-position: 100% 50%;
+    }
+}
+
+.nav-menu a:hover::after,
+.projects-btn:hover::after,
+.hub-btn:hover::after,
+.theme-toggle:hover::after {
+    opacity: 0.8;
+}
+
+/* Enhanced hover effects with multiple animations */
+.nav-menu a:hover,
+.projects-btn:hover,
+.hub-btn:hover,
+.theme-toggle:hover {
+    color: var(--primary-color) !important;
+    background: rgba(255, 215, 0, 0.15) !important;
+    border-color: rgba(255, 215, 0, 0.4) !important;
+    transform: translateY(-5px) scale(1.05) !important;
+    box-shadow: 
+        0 8px 25px rgba(255, 215, 0, 0.3),
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Active state animation */
+.nav-menu a.active,
+.projects-btn.active {
+    background: rgba(255, 215, 0, 0.2) !important;
+    color: var(--primary-color) !important;
+    border-color: rgba(255, 215, 0, 0.5) !important;
+    box-shadow: 
+        0 4px 15px rgba(255, 215, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Pulse animation for active buttons */
+.projects-btn.active {
+    animation: activePulse 2s ease-in-out infinite;
+}
+
+@keyframes activePulse {
+    0%, 100% { 
+        box-shadow: 
+            0 4px 15px rgba(255, 215, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    50% { 
+        box-shadow: 
+            0 6px 20px rgba(255, 215, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* Scrolled navbar states */
+.navbar.scrolled .nav-menu a,
+.navbar.scrolled .projects-btn,
+.navbar.scrolled .hub-btn,
+.navbar.scrolled .theme-toggle {
+    color: #ffffff !important;
+}
+
+.navbar.scrolled .nav-menu a:hover,
+.navbar.scrolled .projects-btn:hover,
+.navbar.scrolled .hub-btn:hover,
+.navbar.scrolled .theme-toggle:hover {
+    color: var(--primary-color) !important;
+    background: rgba(255, 204, 0, 0.1) !important;
+    border-color: var(--primary-color) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Dark theme */
+[data-theme="dark"] .nav-menu a,
+[data-theme="dark"] .projects-btn,
+[data-theme="dark"] .hub-btn,
+[data-theme="dark"] .theme-toggle {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .navbar.scrolled .nav-menu a,
+[data-theme="dark"] .navbar.scrolled .projects-btn,
+[data-theme="dark"] .navbar.scrolled .hub-btn,
+[data-theme="dark"] .navbar.scrolled .theme-toggle {
+    color: #ffffff !important;
+}
+
+/* Theme toggle special effects */
+.theme-toggle {
+    border-radius: 50% !important;
+    width: 45px !important;
+    height: 45px !important;
+    padding: 0 !important;
+    justify-content: center !important;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-3px) scale(1.1) rotate(180deg) !important;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.theme-toggle i {
+    transition: all 0.3s ease;
+}
+
+
+

@@ -1,0 +1,112 @@
+/* Uniform Navbar Button Styling */
+
+/* Make all navbar buttons look the same */
+.nav-menu a,
+.projects-btn,
+.hub-btn,
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px !important;
+    background: transparent !important;
+    border: 2px solid transparent !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+    font-size: 1rem !important;
+    text-decoration: none !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shimmer effect for all buttons */
+.nav-menu a::before,
+.projects-btn::before,
+.hub-btn::before,
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 204, 0, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav-menu a:hover::before,
+.projects-btn:hover::before,
+.hub-btn:hover::before,
+.theme-toggle:hover::before {
+    left: 100%;
+}
+
+/* Uniform hover effects */
+.nav-menu a:hover,
+.projects-btn:hover,
+.hub-btn:hover,
+.theme-toggle:hover {
+    color: var(--primary-color) !important;
+    background: rgba(255, 204, 0, 0.1) !important;
+    border-color: var(--primary-color) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Scrolled navbar states */
+.navbar.scrolled .nav-menu a,
+.navbar.scrolled .projects-btn,
+.navbar.scrolled .hub-btn,
+.navbar.scrolled .theme-toggle {
+    color: #000000 !important;
+}
+
+.navbar.scrolled .nav-menu a:hover,
+.navbar.scrolled .projects-btn:hover,
+.navbar.scrolled .hub-btn:hover,
+.navbar.scrolled .theme-toggle:hover {
+    color: var(--primary-color) !important;
+    background: rgba(255, 204, 0, 0.1) !important;
+    border-color: var(--primary-color) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Dark theme */
+[data-theme="dark"] .nav-menu a,
+[data-theme="dark"] .projects-btn,
+[data-theme="dark"] .hub-btn,
+[data-theme="dark"] .theme-toggle {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .navbar.scrolled .nav-menu a,
+[data-theme="dark"] .navbar.scrolled .projects-btn,
+[data-theme="dark"] .navbar.scrolled .hub-btn,
+[data-theme="dark"] .navbar.scrolled .theme-toggle {
+    color: #000000 !important;
+}
+
+/* Hub button - same as other buttons */
+.hub-btn {
+    border: 2px solid transparent !important;
+}
+
+.hub-btn:hover {
+    color: var(--primary-color) !important;
+    background: rgba(255, 204, 0, 0.1) !important;
+    border-color: var(--primary-color) !important;
+    transform: translateY(-2px) !important;
+}
+
+.hub-btn.active {
+    background: var(--primary-color) !important;
+    color: #000000 !important;
+    border-color: var(--primary-color) !important;
+}
+
+.hub-btn.active:hover {
+    background: #FFDC00 !important;
+    transform: translateY(-1px) !important;
+}

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments - DevNexes Solutions</title>
+    <link rel="stylesheet" href="//assets/css/styles.css">
+    <link rel="stylesheet" href="//assets/css/navbar-uniform.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 80px;
+            background: #000000;
+            color: #ffffff;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comments-page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .comments-count {
+            color: #cccccc;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Add Comment Form */
+        .add-comment {
+            background: #1a1a1a;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #333;
+        }
+
+        .comment-form {
+            width: 100%;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .name-input {
+            flex: 1;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 0.8rem;
+            color: #ffffff;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .name-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.2);
+        }
+
+        .comment-input {
+            width: 100%;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 0.8rem;
+            color: #ffffff;
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 80px;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .comment-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.2);
+        }
+
+        .comment-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .btn-cancel {
+            background: #333;
+            border: none;
+            color: #ccc;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cancel:hover {
+            background: #444;
+        }
+
+        .btn-comment {
+            background: var(--primary-color);
+            color: #000;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-comment:hover {
+            background: #FFDC00;
+            transform: translateY(-1px);
+        }
+
+        /* Comments List */
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .comment {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .comment:hover {
+            border-color: #444;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #FFDC00 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #000;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .comment-info {
+            flex: 1;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .comment-date {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .comment-text {
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 1rem;
+            word-wrap: break-word;
+            margin-left: 0;
+        }
+
+        .no-comments {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: #1a1a1a;
+            border-radius: 12px;
+            border: 1px solid #333;
+            color: #888;
+        }
+
+        .no-comments i {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .no-comments h3 {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .comments-page {
+                padding: 1rem;
+            }
+            
+            .add-comment {
+                gap: 0.8rem;
+            }
+            
+            .user-avatar {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-main">DevNexes</span>
+                <span class="logo-sub">Solutions</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="projects-btn" onclick="window.open('projects.html', '_blank')">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </button>
+                <button class="hub-btn active">
+                    <i class="fas fa-comments"></i>
+                    <span>Comments</span>
+                </button>
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-sun"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Comments Page -->
+    <div class="comments-page">
+        <h1 class="page-title">Comments</h1>
+        <div class="comments-count" id="commentsCount">0 comments</div>
+
+        <!-- Add Comment -->
+        <div class="add-comment">
+            <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem;"><i class="fas fa-comment" style="color: var(--primary-color); margin-right: 0.5rem;"></i>Add Comment</h3>
+            <div class="comment-form" id="commentForm">
+                <div class="form-row">
+                    <input type="text" class="name-input" id="nameInput" placeholder="Your name" required>
+                </div>
+                <textarea class="comment-input" id="commentInput" placeholder="Write your comment here..." required></textarea>
+                <div class="comment-actions">
+                    <button class="btn-cancel" onclick="cancelComment()">Cancel</button>
+                    <button class="btn-comment" id="submitBtn" onclick="submitComment()"><i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i>Post</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comments List -->
+        <div class="comments-list" id="commentsList">
+            <!-- Comments will be loaded here -->
+        </div>
+
+        <!-- No Comments -->
+        <div class="no-comments" id="noComments" style="display: none;">
+            <i class="fas fa-comments"></i>
+            <h3>No comments yet</h3>
+            <p>Be the first to share your thoughts!</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: #111; color: #fff; padding: 2rem 0; margin: 0; border-top: 1px solid #333;">
+        <div style="max-width: 800px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <div style="font-size: 1.2rem; font-weight: 600; color: var(--primary-color); margin-bottom: 0.5rem;">DevNexes Solutions</div>
+                <p style="margin: 0; color: #ccc; font-style: italic;">"Smart Web. Smarter Code."</p>
+            </div>
+            <div style="text-align: right;">
+                <p style="margin: 0; font-weight: 600;">Muhammad Raham</p>
+                <p style="margin: 0; color: #ccc; font-size: 0.9rem;">Python Web & AI Developer</p>
+                <p style="margin: 0; color: #ccc; font-size: 0.9rem;">devnexes.solutions@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let comments = [];
+
+        // Load comments from API
+        async function loadComments() {
+            try {
+                const response = await fetch('/api/reviews');
+                const data = await response.json();
+                comments = data.reviews || [];
+                renderComments();
+                updateCount();
+            } catch (error) {
+                console.error('Error loading comments:', error);
+                showNoComments();
+            }
+        }
+
+        // Render comments (newest first)
+        function renderComments() {
+            const list = document.getElementById('commentsList');
+            const noComments = document.getElementById('noComments');
+            
+            if (comments.length === 0) {
+                list.style.display = 'none';
+                noComments.style.display = 'block';
+                return;
+            }
+            
+            list.style.display = 'flex';
+            noComments.style.display = 'none';
+            
+            // Sort comments by date (newest first)
+            const sortedComments = [...comments].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+            
+            list.innerHTML = sortedComments.map(comment => `
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="user-avatar">
+                            ${comment.name.charAt(0).toUpperCase()}
+                        </div>
+                        <div class="comment-info">
+                            <div class="comment-author">${comment.name}</div>
+                            <div class="comment-date">${formatDate(comment.created_at)}</div>
+                        </div>
+                    </div>
+                    <div class="comment-text">${comment.review_text}</div>
+                </div>
+            `).join('');
+        }
+
+        // Update comments count
+        function updateCount() {
+            const count = comments.length;
+            document.getElementById('commentsCount').textContent = 
+                count === 1 ? '1 comment' : `${count} comments`;
+        }
+
+        // Format date (YouTube style)
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const diff = now - date;
+            const minutes = Math.floor(diff / (1000 * 60));
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const weeks = Math.floor(days / 7);
+            const months = Math.floor(days / 30);
+            const years = Math.floor(days / 365);
+            
+            if (minutes < 1) return 'just now';
+            if (minutes < 60) return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+            if (hours < 24) return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+            if (days < 7) return `${days} day${days > 1 ? 's' : ''} ago`;
+            if (weeks < 4) return `${weeks} week${weeks > 1 ? 's' : ''} ago`;
+            if (months < 12) return `${months} month${months > 1 ? 's' : ''} ago`;
+            return `${years} year${years > 1 ? 's' : ''} ago`;
+        }
+
+        // Cancel comment
+        function cancelComment() {
+            const input = document.getElementById('commentInput');
+            const nameInput = document.getElementById('nameInput');
+            
+            input.value = '';
+            nameInput.value = '';
+        }
+
+        // Submit comment
+        async function submitComment() {
+            const input = document.getElementById('commentInput');
+            const nameInput = document.getElementById('nameInput');
+            const text = input.value.trim();
+            const name = nameInput.value.trim();
+            
+            if (!text || !name) {
+                alert('Please fill in both name and comment fields.');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/reviews', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: '',
+                        rating: 5,
+                        review_text: text
+                    })
+                });
+                
+                if (response.ok) {
+                    cancelComment();
+                    await loadComments();
+                } else {
+                    alert('Error posting comment. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error posting comment. Please try again.');
+            }
+        }
+
+        function showNoComments() {
+            document.getElementById('commentsList').style.display = 'none';
+            document.getElementById('noComments').style.display = 'block';
+        }
+
+        // Auto-refresh comments every 10 seconds
+        setInterval(loadComments, 10000);
+
+        // Theme toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            loadComments();
+            
+            const themeToggle = document.getElementById('themeToggle');
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeToggle.querySelector('i').className = 'fas fa-moon';
+            }
+
+            themeToggle.addEventListener('click', function() {
+                const isDark = document.documentElement.hasAttribute('data-theme');
+                
+                if (isDark) {
+                    document.documentElement.removeAttribute('data-theme');
+                    this.querySelector('i').className = 'fas fa-sun';
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    this.querySelector('i').className = 'fas fa-moon';
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

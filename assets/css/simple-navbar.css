@@ -1,0 +1,25 @@
+/* Simple Navbar Animations - No Errors */
+
+.nav-menu a,
+.projects-btn,
+.hub-btn,
+.theme-toggle {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.nav-menu a:hover,
+.projects-btn:hover,
+.hub-btn:hover {
+    color: var(--primary-color);
+    background: rgba(255, 204, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.theme-toggle:hover {
+    transform: rotate(180deg);
+    color: var(--primary-color);
+}
